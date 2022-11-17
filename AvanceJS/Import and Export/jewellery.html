@@ -1,0 +1,53 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			#navbar {
+				padding-left: 5%;
+				padding-right: 5%;
+				display: flex;
+				border: solid black 1px;
+				justify-content: space-between;
+			}
+			#options {
+				display: flex;
+				justify-content: space-between;
+				gap: 20px;
+			}
+            .container {
+				width: 98%;
+				margin: auto;
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 10px;
+			}
+			.container img {
+				width: 100%;
+				height: 70%;
+			}
+			.container div {
+				height: 300px;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navbarContainer"></div>
+		<div class="container"></div>
+	</body>
+</html>
+<script type="module">
+	import navbar from "./components/navbar.js";
+    import {getData,appendData} from './scripts/fetch&append.js';
+
+    let res=await getData('https://fakestoreapi.com/products/category/jewelery')
+    let cont=document.querySelector('.container');
+    appendData(res, cont);
+	document.querySelector(".navbarContainer").innerHTML = navbar();
+</script>

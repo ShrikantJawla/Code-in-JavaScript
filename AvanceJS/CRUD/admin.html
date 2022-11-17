@@ -1,0 +1,75 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<input type="text" name="" id="id" placeholder="id" />
+		<input type="text" name="" id="title" placeholder="title" />
+		<input type="text" name="" id="author" placeholder="author" />
+		<button onclick="addPost()">Submit</button>
+		<div class="update">
+			<h1>Update Post</h1>
+			<input type="text" name="" id="updateId" />
+			<input type="text" name="" id="changeData" placeholder="need to update" />
+			<button onclick="changeData()">Change</button>
+		</div>
+		<div class="replacePost">
+			<h1>Replace Post</h1>
+			<input type="text" name="" id="replaceId" />
+			<input
+				type="text"
+				name=""
+				id="replaceData"
+				placeholder="need to update"
+			/>
+			<button onclick="replaceData()">Change</button>
+		</div>
+	</body>
+</html>
+<script>
+	class User {
+		constructor(id, title, author) {
+			this.id = id;
+			this.title = title;
+			this.author = author;
+		}
+	}
+	let addPost = () => {
+		let id = document.getElementById("id").value;
+		let title = document.getElementById("title").value;
+		let author = document.getElementById("author").value;
+		let user = new User(id, title, author);
+		fetch("http://localhost:3000/posts", {
+			method: "POST",
+			body: JSON.stringify(user),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+			});
+	};
+
+	// function changeData() {
+	// 	let id = document.getElementById("updateId").value;
+	// }
+	function replaceData() {
+		let id = document.getElementById("replaceId").value;
+		let d = { title: "Shrikant", author: "Me hu" };
+		fetch(`http://localhost:3000/posts/${id}`, {
+			method: "PUT",
+			body: JSON.stringify(d),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+	}
+</script>

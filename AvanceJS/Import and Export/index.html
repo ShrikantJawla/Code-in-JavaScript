@@ -1,0 +1,40 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Import And Export</title>
+		<style>
+			#navbar {
+				padding-left: 5%;
+				padding-right: 5%;
+				display: flex;
+				border: solid black 1px;
+				justify-content: space-between;
+			}
+			#options {
+				display: flex;
+				justify-content: space-between;
+				gap: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navContainer"></div>
+	</body>
+</html>
+<script type="module">
+	//Tell me how to export?
+	//0. type=module(setup)
+
+	import navbar from "./components/navbar.js";
+	// console.log(navbar);
+
+	//1. need to append ( what and where)
+
+	let container = document.querySelector(".navContainer");
+	container.innerHTML = navbar();
+</script>

@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "title": "Shrikant",
+      "author": "Me hu",
+      "id": 1
+    },
+    {
+      "id": "3",
+      "title": "hi",
+      "author": "shri"
+    },
+    {
+      "id": "4",
+      "title": "you",
+      "author": "anmol"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

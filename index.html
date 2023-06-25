@@ -1,0 +1,32 @@
+function romanToInt(s: string): number {
+    let sum:number=0;
+    let arr:number[] = [];
+    for(let i of s){
+        if(i==='I') arr.push(1);
+        if(i==='V') arr.push(5);
+        if(i==='X') arr.push(10);
+        if(i==='L') arr.push(50);
+        if(i==='C') arr.push(100);
+        if(i==='D') arr.push(500);
+        if(i==='M') arr.push(1000);
+    }
+    for(let i=0; i<arr.length-1; i++){
+        let temp:number = 0;
+        console.log(arr[i])
+        if(arr[i+1]>arr[i]){
+            sum+=arr[i+1]-arr[i];
+            i++;
+            continue;
+        }
+        while(arr[i+1]===arr[i]){
+            temp+=arr[i];
+            i++;
+        }
+        sum+=temp;
+        if(arr[i+1]<arr[i]){
+            sum+=arr[i];
+        }
+        if(i===arr.length-1) sum+=arr[i]
+    }
+    return sum;
+};
